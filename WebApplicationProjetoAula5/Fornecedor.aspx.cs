@@ -25,11 +25,12 @@ namespace WebApplicationProjetoAula5
             }
             else
             {
+                
                 string nome = txtnome.Text;
                 string telefone = txttelefone.Text;
                 string cidade = txtcidade.Text;
                 string endereco = txtendereco.Text;
-                int cnpj = Convert.ToInt32(txtCNPJ.Text);
+                long cnpj = Convert.ToInt64(txtCNPJ.Text.ToString().Substring(0, 8));
                 FORNECEDOR f = new FORNECEDOR() { nome = nome, telefone = telefone, cidade = cidade, endereco = endereco, cnpj = cnpj };
                 Aula5Entities contextAula5 = new Aula5Entities();
 
@@ -80,10 +81,7 @@ namespace WebApplicationProjetoAula5
         {
             Aula5Entities context = new Aula5Entities();
             List<FORNECEDOR> lstfornecedor = context.FORNECEDOR.ToList<FORNECEDOR>();
-            foreach (var item in lstfornecedor)
-            {
-                item.cnpj = Convert.ToInt64(item.cnpj.Value.ToString().Substring(0, 8));
-            }
+           
             GVFornecedor.DataSource = lstfornecedor;
             GVFornecedor.DataBind();
         }

@@ -138,6 +138,8 @@ namespace WebApplicationProjetoAula5
             Aula5Entities context = new Aula5Entities();
             List<CLIENTE> lstcliente = context.CLIENTE.ToList<CLIENTE>();
 
+        
+
             GVCliente.DataSource = lstcliente;
             GVCliente.DataBind();
         }
@@ -146,6 +148,8 @@ namespace WebApplicationProjetoAula5
         {
             Aula5Entities context = new Aula5Entities();
             List<FORNECEDOR> lstfornecedor = context.FORNECEDOR.ToList<FORNECEDOR>();
+
+            
 
             GVFornecedor.DataSource = lstfornecedor;
             GVFornecedor.DataBind();
